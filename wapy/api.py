@@ -90,7 +90,9 @@ class Wapy:
     def search(self, query, **kwargs):
         """Search allows text search on the Walmart.com catalogue and returns matching items available for sale online.
 
-        This implementation doesn't take into account the start parameter from the actual Walmart specification. Instead, we've abstracted the same concept to a paginated approach. You can specify which 'page' of results you get, according to the numItems you expect from every page.
+        This implementation doesn't take into account the start parameter from the actual Walmart specification.
+        Instead, we've abstracted the same concept to a paginated approach.
+        You can specify which 'page' of results you get, according to the numItems you expect from every page.
 
         :param query:
             Search text - whitespace separated sequence of keywords to search for
@@ -118,7 +120,9 @@ class Wapy:
                 Boolean flag to enable facets. Default value is off. Set this to on to enable facets.
 
             :param facet.filter [Optional]
-                Filter on the facet attribute values. This parameter can be set to <facet-name>:<facet-value> (without the angles). Here facet-name and facet-value can be any valid facet picked from the search API response when facets are on.
+                Filter on the facet attribute values.
+                This parameter can be set to <facet-name>:<facet-value> (without the angles).
+                Here facet-name and facet-value can be any valid facet picked from the search API response when facets are on.
 
             :param facet.range [Optional]
                 Range filter for facets which take range values, like price. See usage above in the examples.
@@ -450,7 +454,10 @@ class WalmartProduct:
 
     @property
     def product_tracking_url(self):
-        """Product tracking url: Deep linked URL that directly links to the product page of this item on walmart.com, and uniquely identifies the affiliate sending this request via a linkshare tracking id |LSNID|. The LSNID parameter needs to be replaced with your linkshare tracking id, and is used by us to correctly attribute the sales from your channel on walmart.com. Actual commission numbers will be made available through your linkshare account.
+        """Product tracking url: Deep linked URL that directly links to the product page of this item on walmart.com.
+        This link uniquely identifies the affiliate sending this request via a linkshare tracking id |LSNID|.
+        The LSNID parameter needs to be replaced with your linkshare tracking id, and is used by us to correctly attribute the sales from your channel on walmart.com.
+        Actual commission numbers will be made available through your linkshare account.
 
         :return:
             Deep link URL (string). Returns None if attribute is not found in the response.
@@ -507,7 +514,11 @@ class WalmartProduct:
 
     @property
     def stock(self):
-        """Stock: Indicative quantity of the item available online. Possible values are [Available, Limited Supply, Last few items, Not available]. Limited supply: can go out of stock in the near future, so needs to be refreshed for availability more frequently. Last few items: can go out of stock very quickly, so could be avoided in case you only need to show available items to your users.
+        """Stock: Indicative quantity of the item available online.
+
+        Possible values are [Available, Limited Supply, Last few items, Not available].
+        Limited supply: can go out of stock in the near future, so needs to be refreshed for availability more frequently.
+        Last few items: can go out of stock very quickly, so could be avoided in case you only need to show available items to your users.
 
         :return:
             Stock. (string). Returns None if attribute is not found in the response.
@@ -590,9 +601,6 @@ class WalmartProduct:
         """
         return self.response_handler._safe_get_attribute(name)
 
-"""Models a Walmart product review as an object
-
-"""
 class WalmartProductReview:
     """Models a Walmart Product review as an object
     """
