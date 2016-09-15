@@ -51,7 +51,7 @@ for product in products:
 
 ##Contribution
 
-There are still some things to do to make Wapy a fully featured Python wrapper for the Walmart Open API:
+There are still some things to do to make Wapy a super badass Python wrapper for the Walmart Open API:
 * Return reviews statistics
 * Return all the Special Feeds. Already implemented: Bestsellers, Clearance, Special Buy. Still not implemented:
   * preOrder
