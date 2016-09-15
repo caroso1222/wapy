@@ -10,6 +10,7 @@ Wapy is a Python wrapper for the Walmart Open API.
 * Helper functions such as `bestseller_products()` and more from the Special Feeds section.
 * Silently fails when attribute not found in response
 * Fully documented source code
+* Support for Python 2.7, 3.2, 3.3, 3.4 and 3.5
 
 ##Requirements
 Before using Wapy, you want to make sure you have `requests` installed and a Walmart Open API key:
