@@ -30,7 +30,7 @@ cd wapy
 python setup.py install
 ```
 
-##Simple usage
+##Basic usage
 ```Python
 from wapy.api import Wapy
 
