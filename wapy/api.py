@@ -140,7 +140,7 @@ class Wapy:
                     raise InvalidParameterException('Number of items should be a numeric value')
                 if kwargs['numItems']>25:
                     raise InvalidParameterException('Number of items must not exceed 25')
-                kwargs['start'] = kwargs['numItems']*kwargs['page']
+                kwargs['start'] = kwargs['numItems']*(kwargs['page']-1) + 1
             else:
                 #if numItems not specified, use 10 as default items per page as Walmart does too
                 kwargs['start'] = 10*kwargs['page']
