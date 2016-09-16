@@ -453,6 +453,16 @@ class WalmartProduct:
         return self.response_handler._safe_get_attribute('largeImage')
 
     @property
+    def images(self):
+        """Large image entities: All large images for this item
+
+        :return:
+            A list with all the large size images URLs.
+            Primary image is always returned in the first position of the list
+        """
+        return self.get_images_by_size('large')
+
+    @property
     def product_tracking_url(self):
         """Product tracking url: Deep linked URL that directly links to the product page of this item on walmart.com.
         This link uniquely identifies the affiliate sending this request via a linkshare tracking id |LSNID|.
@@ -600,6 +610,33 @@ class WalmartProduct:
             Returns None if attribute is not found in the response.
         """
         return self.response_handler._safe_get_attribute(name)
+
+    def get_images_by_size(self, size):
+        """Image entities: All images for this item
+
+        :param size:
+            Indicates the size of the returned images: possible options are: 'thumbnail', 'medium', 'large'
+
+        :return:
+            A list with all the images URLs.
+            Primary image is always returned in the first position of the list
+        """
+        if size != 'thumbnail' and size != 'medium' and size != 'large':
+            raise InvalidParameterException("The image size should be 'thumbnail', 'medium' or 'large'")
+        images = []
+        primary_image = None
+        imageEntities = self.response_handler._safe_get_attribute('imageEntities')
+        if imageEntities:
+            for image in imageEntities:
+                if image['entityType'] != 'PRIMARY':
+                    images.append(image[size+'Image'])
+                else:
+                    primary_image = image[size+'Image']
+            if primary_image:
+                images.insert(0, primary_image)
+            return images
+        else:
+            return None
 
 class WalmartProductReview:
     """Models a Walmart Product review as an object
