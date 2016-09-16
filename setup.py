@@ -2,12 +2,12 @@ from distutils.core import setup
 setup(
   name = 'wapy',
   packages = ['wapy'],
-  version = '0.0.3',
+  version = '0.0.4',
   description = 'A python wrapper for the Walmart Open API',
   author = 'Carlos Roso',
   author_email = 'ce.roso398@gmail.com',
   url = 'https://github.com/caroso1222/wapy',
-  download_url = 'https://github.com/caroso1222/wapy/tarball/0.0.3',
+  download_url = 'https://github.com/caroso1222/wapy/tarball/0.0.4',
   keywords = ['walmart', 'wrapper', 'walmart api', 'api', 'python client', 'python'],
   install_requires=["requests"],
   classifiers=[

@@ -143,7 +143,7 @@ class Wapy:
                 kwargs['start'] = kwargs['numItems']*(kwargs['page']-1) + 1
             else:
                 #if numItems not specified, use 10 as default items per page as Walmart does too
-                kwargs['start'] = 10*kwargs['page']
+                kwargs['start'] = 10*(kwargs['page']-1) + 1
         kwargs.pop('page', None)
         data = self._send_request(url, **kwargs).json()
         products = []

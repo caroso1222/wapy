@@ -5,3 +5,4 @@ __pycache__/
 *.py[cod]
 dist/
 MANIFEST
+release_pypi.sh
