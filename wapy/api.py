@@ -448,7 +448,7 @@ class WalmartProduct:
         """Large image: Large size image for the item in jpeg format with dimensions 450 x 450 pixels
 
         :return:
-            URL of the medium sized image (string). Returns None if attribute is not found in the response.
+            URL of the large sized image (string). Returns None if attribute is not found in the response.
         """
         return self.response_handler._safe_get_attribute('largeImage')
 
@@ -565,7 +565,7 @@ class WalmartProduct:
     @property
     def length(self):
         """Length: Indicates the length of the item. First dimension returned by attribute dimensions
-                   e.g. dimensions:"2.0 x 3.0 x 4.0" would return 2.0 as length
+                   e.g. dimensions: "2.0 x 3.0 x 4.0" would return 2.0 as length
 
         :return:
             Length (float). Returns None if attribute is not found in the response.
@@ -577,8 +577,8 @@ class WalmartProduct:
 
     @property
     def width(self):
-        """Width: Indicates the width of the item. Second dimension returned by attribute dimensions e.g. dimensions:"2.0 x 3.0 x 3.0"
-                  e.g. dimensions:"2.0 x 3.0 x 4.0" would return 3.0 as width
+        """Width: Indicates the width of the item. Second dimension returned by attribute dimensions
+                  e.g. dimensions: "2.0 x 3.0 x 4.0" would return 3.0 as width
         :return:
             Width (float). Returns None if attribute is not found in the response.
         """
@@ -589,8 +589,8 @@ class WalmartProduct:
 
     @property
     def height(self):
-        """Height: Indicates the height of the item. Third dimension returned by attribute dimensions e.g. dimensions:"2.0 x 3.0 x 3.0"
-                  e.g. dimensions:"2.0 x 3.0 x 4.0" would return 4.0 as height
+        """Height: Indicates the height of the item. Third dimension returned by attribute dimensions
+                  e.g. dimensions: "2.0 x 3.0 x 4.0" would return 4.0 as height
         :return:
             Height (float). Returns None if attribute is not found in the response.
         """
@@ -686,7 +686,7 @@ class WalmartProductReview:
         """Product review up votes
 
         :return:
-            Number of up votes of this review (int)
+            Number of up votes for this review (int)
         """
         return self.response_handler._safe_get_attribute_int('upVotes')
 
@@ -695,7 +695,7 @@ class WalmartProductReview:
         """Product review down votes
 
         :return:
-            Number of down votes of this review (int)
+            Number of down votes for this review (int)
         """
         return self.response_handler._safe_get_attribute_int('downVotes')
 
