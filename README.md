@@ -3,7 +3,7 @@ Wapy is a fully featured Python wrapper for the Walmart Open API.
 
 ##Features
 * Easy to use, object oriented interface to the Walmart Open API. (*Products and Reviews are retrieved as objects*)
-* Get ready to use, parsed attributes. *e.g. prices as `float`, no strings with escaped html entities, numbers as `int`.*
+* Ready to use, parsed attributes. *e.g. prices as `float`, no strings with escaped html entities, numbers as `int`.*
 * Full support for Walmart Search API, Product Recommendation API, Post Browsed Products API, Trending API and more.
 * Get all responses with `richAttributes='true'` by default. *This lets you get weight and dimensions right off the shelf.*
 * Proper error handling according to original Walmart API documentation
