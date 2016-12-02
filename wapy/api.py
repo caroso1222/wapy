@@ -62,7 +62,7 @@ class Wapy:
         :param api_key:
             A string representing the Walmart Open API key. Can be found in 'My Account' when signing in your Walmartlabs account.
 
-        - Unnamed params passed in kwargs:
+        - Named params passed in kwargs:
             :param LinkShareID [Optional]
                 Your own LinkShare ID. It can be found in any link you generate from the LinkShare platform after the 'id=' parameter. It is an 11 digit alphanumeric string.
         """
@@ -75,7 +75,7 @@ class Wapy:
         :param item_id:
             A string representing the product item id
 
-        - Unnamed params passed in kwargs:
+        - Named params passed in kwargs:
             :param richAttributes [Optional]
                 A boolean to specify whether you want to get your reponse with rich attributes or not. It's True by default.
 
@@ -97,7 +97,7 @@ class Wapy:
         :param query:
             Search text - whitespace separated sequence of keywords to search for
 
-        - Unnamed params passed in kwargs:
+        - Named params passed in kwargs:
             :param numItems [Optional]
                 Number of matching items to be returned, max value 25. Default is 10.
 
@@ -289,7 +289,7 @@ class Wapy:
         :param url:
             The endpoint url to make the request
 
-        - Unnamed params passed in kwargs can be any of the optional GET arguments specified in the Walmart specification
+        - Named params passed in kwargs can be any of the optional GET arguments specified in the Walmart specification
         """
         #Avoid format to be changed, always go for json
         kwargs.pop('format', None)
