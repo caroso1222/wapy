@@ -1,7 +1,7 @@
-#Wapy      
+# Wapy      
 Wapy is a fully featured Python wrapper for the Walmart Open API.
 
-##Features
+## Features
 * Easy to use, object oriented interface to the Walmart Open API. (*Products and Reviews are retrieved as objects*)
 * Ready to use, parsed attributes. *e.g. prices as `float`, no strings with escaped html entities, numbers as `int`.*
 * Full support for Walmart Search API, Product Recommendation API, Post Browsed Products API, Trending API and more.
@@ -12,13 +12,13 @@ Wapy is a fully featured Python wrapper for the Walmart Open API.
 * Fully documented source code
 * Support for Python 2.7, 3.2, 3.3, 3.4 and 3.5
 
-##Requirements
+## Requirements
 Before using Wapy, you want to make sure you have `requests` installed and a Walmart Open API key:
 
 * `pip install requests`
 * Register and grab your API key in the [Walmart Open API Developer portal](https://developer.walmartlabs.com/).
 
-##Installation
+## Installation
 Installation via `pip` is recommended:
 ```
 pip install wapy
@@ -31,7 +31,7 @@ cd wapy
 python setup.py install
 ```
 
-##Basic usage
+## Basic usage
 ```Python
 from wapy.api import Wapy
 
@@ -57,32 +57,32 @@ for review in reviews:
 
 This example barely shows the power of Wapy. Read the API documentation to discover all you can achieve with this library.
 
-##API documentation
+## API documentation
 
-###`class Wapy`
+### `class Wapy`
 This class models the main Walmart API proxy class and offers services such as product lookup, product search, trending products retrieval, and much more.
 
-###Methods
-####`__init__([api_key], **kwargs)`
+### Methods
+#### `__init__([api_key], **kwargs)`
 Initialize a Walmart API Proxy.
 
-#####Params#####
+##### Params#####
 * **`api_key`** A string representing the Walmart Open API key. Can be found in 'My Account' when signing in your Walmartlabs account.
 * Named **optional** params passed in kwargs:
   * **`LinkShareID`** Your own LinkShare ID. It can be found in any link you generate from the LinkShare platform after the 'id=' parameter. It is an 11 digit alphanumeric string.
 
-####`product_lookup([item_id], **kwargs)`
+#### `product_lookup([item_id], **kwargs)`
 Walmart product lookup.
 
-#####Params#####
+##### Params #####
 * **`item_id`** A string representing the product item id.
 * Named **optional** params passed in kwargs:
   * **`richAttributes`** A boolean to specify whether you want to get your reponse with rich attributes or not. It's True by default.
 
-#####Return#####
+##### Return #####
 An instance of `WalmartProduct`. <[*[WalmartProduct](#class-walmartproduct)*]>
 
-####`search([query], **kwargs)`
+#### `search([query], **kwargs)`
 
 Search allows text search on the Walmart.com catalogue and returns matching items available for sale online.
 
@@ -90,7 +90,7 @@ This implementation doesn't take into account the start parameter from the actua
 Instead, I've abstracted the same concept to a paginated approach.
 You can specify which 'page' of results you get, according to the numItems you expect from every page.
 
-#####Params#####
+##### Params #####
 * **`query`** Search text - whitespace separated sequence of keywords to search for
 * Unnamed params passed in kwargs:
   * **`numItems`** Number of matching items to be returned, max value 25. Default is 10.
@@ -103,100 +103,100 @@ You can specify which 'page' of results you get, according to the numItems you e
   * **`facet.filter`** Filter on the facet attribute values. This parameter can be set to <facet-name>:<facet-value> (without the angles). Here facet-name and facet-value can be any valid facet picked from the search API response when facets are on.
   * **`facet.range`** Range filter for facets which take range values, like price. See usage above in the examples.
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
 ####`product_recommendations([item_id])`
 Returns a list of a product's related products. A maximum of 10 items are returned, being ordered from most relevant to least relevant for the customer.
 
-#####Params#####
+##### Params #####
 * **`item_id`** The id of the product from which the related products are returned
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
-####`post_browsed_products([item_id])`
+#### `post_browsed_products([item_id])`
 
 Returns a list of recommended products based on their product viewing history. A maximum of 10 items are returned, being ordered from most relevant to least relevant for the customer.
 
-#####Params#####
+##### Params #####
 * **`item_id`** The id of the product from which the post browsed products are returned
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
-####`product_reviews([item_id])`
+#### `product_reviews([item_id])`
 Returns the list of reviews written by Walmart users for a specific item.
 
-#####Params#####
+##### Params #####
 * **`item_id`** The id of the product which reviews are returned from
 
-#####Return#####
+##### Return #####
 A list of `WalmartProductReview` instances. <[*[WalmartProductReview](#class-walmartproductreview)*]>
 
-####`trending_products()`
+#### `trending_products()`
 
 Returns a list of items according to what is bestselling on Walmart.com right now. The items are curated on the basis of user browse activity and sales activity, and updated multiple times a day.
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
-####`bestseller_products([category])`
+#### `bestseller_products([category])`
 
 Return a list of bestselling items in their respective categories on Walmart.com. This method is part of the Special Feeds section of the Walmart API.
 
-#####Params#####
+##### Params #####
 * **`category`** The number id of the category from which the products are retrieved.
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
-####`clearance_products([category])`
+#### `clearance_products([category])`
 
 Return a list of all items on clearance from a category. This method is part of the Special Feeds section of the Walmart API.
 
-#####Params#####
+##### Params #####
 * **`category`** The number id of the category from which the products are retrieved.
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
-####`special_buy_products([category])`
+#### `special_buy_products([category])`
 
 Return a list of all items on Special Buy on Walmart.com, which means there is a special offer on them. This method is part of the Special Feeds section of the Walmart API.
 
-#####Params#####
+##### Params #####
 * **`category`** The number id of the category from which the products are retrieved.
 
-#####Return#####
+##### Return #####
 A list of `WalmartProduct` instances. <[*[WalmartProduct](#class-walmartproduct)*]>
 
 ---
 
-###`class WalmartProduct`
+### `class WalmartProduct`
 This class models a Walmart Product as an object. A `WalmartProduct` instance will be returned when performing a `product_lookup` from your Wapy instance.
-###Methods
-####`get_attribute([name])`
+### Methods
+#### `get_attribute([name])`
 Returns any of the product attributes from the Full Response group. When using this method to get attribute values, you must parse the response to float or integer whenever needed. **I don't recommend accessing attributes using this method**. Direct attribute access is preferred. See **Atributes** section below.
 
-#####Params#####
+##### Params #####
 * **`name`** Product attribute's name. Check out the **Atributes** section below to see allowed names.
 
-#####Return#####
+##### Return #####
 
 The product attribute value. <*string*>
 
-####`get_images_by_size([size])`
+#### `get_images_by_size([size])`
 A list with all the images URLs. Primary image is always returned in the first position of the list.
 
-#####Params#####
+##### Params #####
 * **`size`** Size of the desired images: possible options are: 'thumbnail', 'medium', 'large'.
 
-#####Return#####
+##### Return #####
 
 List with all the images URLs. <*[string]*>
 
-###Attributes
+### Attributes
 All properties return `None` if not found in the Walmart API response.
 ####`item_id`
 A positive integer that uniquely identifies an item. <*string*>
