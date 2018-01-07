@@ -52,7 +52,7 @@ for product in products:
 #### PRODUCT REVIEWS ####
 reviews = wapy.product_reviews('21853453')
 for review in reviews:
-    print (product.reviewer)
+    print (review.reviewer)
 ```
 
 This example barely shows the power of Wapy. Read the API documentation to discover all you can achieve with this library.
